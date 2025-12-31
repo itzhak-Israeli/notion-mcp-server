@@ -4,14 +4,21 @@
     "notion",
     "api",
     "mcp",
-    "server"
+    "server",
+    "http",
+    "express",
+    "sse",
+    "streaming"
   ],
   "version": "1.9.1",
   "license": "MIT",
   "type": "module",
   "scripts": {
     "build": "tsc -build && node scripts/build-cli.js",
-    "dev": "tsx watch scripts/start-server.ts"
+    "dev": "tsx watch scripts/start-server.ts",
+    "start:http": "tsx scripts/start-server.ts --transport http",
+    "start:stdio": "tsx scripts/start-server.ts --transport stdio",
+    "server": "tsx scripts/start-server.ts --transport http --port 3000"
   },
   "bin": {
     "notion-mcp-server": "bin/cli.mjs"
@@ -46,7 +53,7 @@
     "typescript": "^5.8.2",
     "vitest": "^3.1.1"
   },
-  "description": "Official MCP server for Notion API",
+  "description": "Official MCP server for Notion API with HTTP and STDIO transport support",
   "main": "index.js",
   "repository": {
     "type": "git",
